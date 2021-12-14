@@ -118,19 +118,25 @@
         )
         {
             Carta cartaAdversario = getCartaAdversario(adversario);
-            if (cartaJogador.getAtaque() > cartaAdversario.getDefesa())
+            if (cartaJogador.getAtaque()>= cartaAdversario.getDefesa() && cartaAdversario.getAtaque()>= cartaJogador.getDefesa() )
             {
-                Console.WriteLine("Você ganhou!");
+                Console.WriteLine("Os dois cards foram destruidos");
+                
+            }
+            else if (cartaJogador.getAtaque() >= cartaAdversario.getDefesa())
+            {
+                Console.WriteLine("Você destruiu o card adversário");
             }
             else if (cartaJogador.getAtaque() < cartaAdversario.getDefesa())
             {
-                Console.WriteLine("Você perdeu!");
+                Console.WriteLine("Você Não destruiu o card adversário");
             }
-            else
+            if (cartaAdversario.getAtaque() >= cartaJogador.getDefesa() && cartaJogador.getAtaque()< cartaAdversario.getDefesa() ) 
             {
-                Console.WriteLine("Empate!");
-            }
-
+                 Console.WriteLine(cartaJogador.getNome() + " foi destruido");
+            }   
+            
+            Console.WriteLine(cartaAdversario.getNome());
             jogarNovamente();
         }
 

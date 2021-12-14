@@ -1,0 +1,30 @@
+D:\Projetos\Unity\cartas\bin\Debug\net6.0\cartas.exe
+D:\Projetos\Unity\cartas\bin\Debug\net6.0\cartas.deps.json
+D:\Projetos\Unity\cartas\bin\Debug\net6.0\cartas.runtimeconfig.json
+D:\Projetos\Unity\cartas\bin\Debug\net6.0\cartas.dll
+D:\Projetos\Unity\cartas\bin\Debug\net6.0\ref\cartas.dll
+D:\Projetos\Unity\cartas\bin\Debug\net6.0\cartas.pdb
+D:\Projetos\Unity\cartas\obj\Debug\net6.0\cartas.csproj.AssemblyReference.cache
+D:\Projetos\Unity\cartas\obj\Debug\net6.0\cartas.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projetos\Unity\cartas\obj\Debug\net6.0\cartas.AssemblyInfoInputs.cache
+D:\Projetos\Unity\cartas\obj\Debug\net6.0\cartas.AssemblyInfo.cs
+D:\Projetos\Unity\cartas\obj\Debug\net6.0\cartas.csproj.CoreCompileInputs.cache
+D:\Projetos\Unity\cartas\obj\Debug\net6.0\cartas.dll
+D:\Projetos\Unity\cartas\obj\Debug\net6.0\ref\cartas.dll
+D:\Projetos\Unity\cartas\obj\Debug\net6.0\cartas.pdb
+D:\Projetos\Unity\cartas\obj\Debug\net6.0\cartas.genruntimeconfig.cache
+C:\Users\Richard Maia\Desktop\cartas-master\bin\Debug\net6.0\cartas.exe
+C:\Users\Richard Maia\Desktop\cartas-master\bin\Debug\net6.0\cartas.deps.json
+C:\Users\Richard Maia\Desktop\cartas-master\bin\Debug\net6.0\cartas.runtimeconfig.json
+C:\Users\Richard Maia\Desktop\cartas-master\bin\Debug\net6.0\cartas.dll
+C:\Users\Richard Maia\Desktop\cartas-master\bin\Debug\net6.0\ref\cartas.dll
+C:\Users\Richard Maia\Desktop\cartas-master\bin\Debug\net6.0\cartas.pdb
+C:\Users\Richard Maia\Desktop\cartas-master\obj\Debug\net6.0\cartas.csproj.AssemblyReference.cache
+C:\Users\Richard Maia\Desktop\cartas-master\obj\Debug\net6.0\cartas.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Richard Maia\Desktop\cartas-master\obj\Debug\net6.0\cartas.AssemblyInfoInputs.cache
+C:\Users\Richard Maia\Desktop\cartas-master\obj\Debug\net6.0\cartas.AssemblyInfo.cs
+C:\Users\Richard Maia\Desktop\cartas-master\obj\Debug\net6.0\cartas.csproj.CoreCompileInputs.cache
+C:\Users\Richard Maia\Desktop\cartas-master\obj\Debug\net6.0\cartas.dll
+C:\Users\Richard Maia\Desktop\cartas-master\obj\Debug\net6.0\ref\cartas.dll
+C:\Users\Richard Maia\Desktop\cartas-master\obj\Debug\net6.0\cartas.pdb
+C:\Users\Richard Maia\Desktop\cartas-master\obj\Debug\net6.0\cartas.genruntimeconfig.cache

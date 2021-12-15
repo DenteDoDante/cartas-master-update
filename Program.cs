@@ -48,7 +48,7 @@
                 case "novo":
                     {
                         Console.Clear();
-                        Console.WriteLine("Iniciando novo jogo...");
+                        Console.WriteLine("Iniciando novo jogo...\n\n");
                         novoJogo();
                         break;
                     }
@@ -71,19 +71,11 @@
             adversario = new Jogador(2, "Adversário");
 
             // Exibimos as cartas do jogador em mãos
-            Console.WriteLine("Suas cartas são:");
-            foreach (Carta carta in jogador.GetCartas())
-            {
-                Console
-                    .WriteLine(carta.getNome() +
-                    " - " +
-                    carta.getAtaque() +
-                    " de ataque e " +
-                    carta.getDefesa() +
-                    " de defesa.");
-            }
+            exibirMao();
 
             // Selecionar a carta para jogar na mesa;
+            Console.WriteLine("Vida atual =  " + jogador.getVida());
+            Console.WriteLine("Vida atual do oponente é =  " + adversario.getVida());
             Console
                 .WriteLine("\nDigite o número da carta que deseja jogar na mesa(1 à 4):");
             string cartaMesa = Console.ReadLine();
@@ -110,19 +102,26 @@
             }
         }
 
+        private static void exibirMao()
+        {
+            Console.WriteLine("Suas cartas são:");
+
+            for (var i = 0; i < jogador.GetCartas().Count(); i++)
+            {
+                Console.WriteLine(i + 1 + " - " +
+                        jogador.GetCartas()[i].getNome() +
+                    " - " +
+                    jogador.GetCartas()[i].getAtaque() +
+                    " de ataque e " +
+                    jogador.GetCartas()[i].getDefesa() +
+                    " de defesa.\n");
+            }
+        }
+
         private static void verificaResultado(Carta cartaJogador, Jogador adversario)
         {
             Carta cartaAdversario = getCartaAdversario(adversario);
             Console.WriteLine("J: " + jogador.GetGrimorio().Count() + " - A: " + adversario.GetGrimorio().Count());
-
-            if (jogador.GetCartas().Count() == 0)
-            {
-                jogador.setVida(jogador.getVida() - cartaAdversario.getAtaque());
-            }
-            else if (adversario.GetCartas().Count() == 0)
-            {
-                adversario.setVida(adversario.getVida() - cartaJogador.getAtaque());
-            }
 
 
             if (cartaJogador.getAtaque() >= cartaAdversario.getDefesa() && cartaAdversario.getAtaque() >= cartaJogador.getDefesa())
@@ -159,7 +158,7 @@
                 if (cartaComprada.getId() != -1)
                 {
                     jogador.GetCartas().Add(cartaComprada);
-                    Console.WriteLine("Você comprou: " + cartaComprada.getNome() + "\nPróximo turmo...\n");
+                    Console.WriteLine("> Você comprou: " + cartaComprada.getNome() + "\nPróximo turmo...\n");
                     turnoSC();
                 }
                 else
@@ -173,29 +172,21 @@
 
         private static void turnoSC()
         {
+            exibirMao();
+            Console.WriteLine("Vida atual =  " + jogador.getVida());
+            Console.WriteLine("Vida atual do oponente é =  " + adversario.getVida());
             Console
-              .WriteLine("\nDigite o número da carta que deseja jogar na mesa(1 à 4):");
+              .WriteLine("\nDigite o número da carta que deseja jogar na mesa:");
             string cartaMesa = Console.ReadLine();
 
-            if (cartaMesa == "1")
+
+            for (var i = 0; i < jogador.GetCartas().Count(); i++)
             {
-                Carta carta = jogador.GetCartas()[0];
-                verificaResultado(carta, adversario);
-            }
-            else if (cartaMesa == "2")
-            {
-                Carta carta = jogador.GetCartas()[1];
-                verificaResultado(carta, adversario);
-            }
-            else if (cartaMesa == "3")
-            {
-                Carta carta = jogador.GetCartas()[2];
-                verificaResultado(carta, adversario);
-            }
-            else
-            {
-                Carta carta = jogador.GetCartas()[3];
-                verificaResultado(carta, adversario);
+                if (cartaMesa == (i + 1).ToString())
+                {
+                    Carta carta = jogador.GetCartas()[i];
+                    verificaResultado(carta, adversario);
+                }
             }
         }
 

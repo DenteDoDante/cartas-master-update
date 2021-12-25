@@ -11,6 +11,7 @@ namespace cartas
         private List<Carta> cartas;
 
         private List<Carta> grimorio;
+        
 
         public Jogador(int id, string? nome) {
             this.id = -1;
@@ -27,7 +28,7 @@ namespace cartas
         } 
 
         public void setVida (int vida){
-            this.vida =vida;
+            this.vida = vida;
         }
 
         private List<Carta> pegarCartas(List<Carta> grimorio) {

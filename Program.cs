@@ -5,15 +5,19 @@
         private static string nomeJogador;
         private static Jogador jogador;
         private static Jogador adversario;
+        private  int getAtaqueAdversario;
+        private  int getDefesaAdversario;
+        private  int getAtaqueJogador;
+        private  int getDefesaJogador;
 
         static void Main(string[] args)
         {
+            Console.Title ="Essa familia é muito unida!Card game edition";
             Loading();
             Menu();
 
             Console.ReadLine();
         }
-
         private static void Loading()
         {
             Console.WriteLine("Iniciando o jogo...\nDigite seu nome:");
@@ -67,7 +71,7 @@
         private static void novoJogo()
         {
             //Criamos os jogadores
-            jogador = new Jogador(1, nomeJogador);
+            jogador = new Jogador(1, "nomeJogador");
             adversario = new Jogador(2, "Adversário");
 
             // Exibimos as cartas do jogador em mãos
@@ -76,8 +80,10 @@
             // Selecionar a carta para jogar na mesa;
             Console.WriteLine("Vida atual =  " + jogador.getVida());
             Console.WriteLine("Vida atual do oponente é =  " + adversario.getVida());
-            Console
-                .WriteLine("\nDigite o número da carta que deseja jogar na mesa(1 à 4):");
+            System.Threading.Thread.Sleep(300);
+            Console.WriteLine("Em seu deck a " + jogador.GetGrimorio().Count() + " cards \n" + "No deck do oponente há " + adversario.GetGrimorio().Count() + " cards ");
+           
+            Console.WriteLine("\nDigite o número da carta que deseja jogar na mesa(1 à 4):");
             string cartaMesa = Console.ReadLine();
 
             if (cartaMesa == "1")
@@ -120,37 +126,99 @@
 
         private static void verificaResultado(Carta cartaJogador, Jogador adversario)
         {
+
             Carta cartaAdversario = getCartaAdversario(adversario);
-            Console.WriteLine("J: " + jogador.GetGrimorio().Count() + " - A: " + adversario.GetGrimorio().Count());
+            System.Threading.Thread.Sleep(300);
 
+            int getAtaqueAdversario;
+            int getDefesaAdversario;
+            int getAtaqueJogador;
+            int getDefesaJogador;
+            int getVidaJogador = jogador.getVida();
+            int getVidaAdversario = adversario.getVida();
+            
+            if (cartaJogador.getAtaque() < cartaAdversario.getDefesa() && cartaAdversario.getAtaque() == cartaJogador.getDefesa() )
+            {
+                Console.WriteLine("Ninguem tomou dano");
+                System.Threading.Thread.Sleep(300);
+            }
+            else if (cartaJogador.getAtaque() == cartaAdversario.getDefesa() && cartaAdversario.getAtaque() < cartaJogador.getDefesa() )
+            {
+                Console.WriteLine("Ninguem tomou dano");
+                System.Threading.Thread.Sleep(300);
+            }
+  
+           else if (cartaJogador.getAtaque() == cartaAdversario.getDefesa() && cartaAdversario.getAtaque() == cartaJogador.getDefesa())
+            {
+                Console.WriteLine("Ninguem tomou dano");
+                System.Threading.Thread.Sleep(300);
 
-            if (cartaJogador.getAtaque() >= cartaAdversario.getDefesa() && cartaAdversario.getAtaque() >= cartaJogador.getDefesa())
+            }
+            else if (cartaJogador.getAtaque() < cartaAdversario.getDefesa() && cartaAdversario.getAtaque() < cartaJogador.getDefesa() )
             {
-                Console.WriteLine("Os dois cards foram destruidos");
+                Console.WriteLine("Ninguem tomou dano");
+                System.Threading.Thread.Sleep(300);
+            }
+            else if (cartaJogador.getAtaque() > cartaAdversario.getDefesa() && cartaAdversario.getAtaque() <= cartaJogador.getDefesa() )
+            {
+                getAtaqueJogador = Convert.ToInt32(cartaJogador.getAtaque());
+                getDefesaAdversario = Convert.ToInt32(cartaAdversario.getDefesa());
+                getVidaAdversario = Convert.ToInt32(adversario.getVida());
 
+                int resultVidaAdversario = getAtaqueJogador - getDefesaAdversario;
+
+                Console.WriteLine("O oponente tomou  " +  resultVidaAdversario  + " de dano");
+                System.Threading.Thread.Sleep(300);
+            
+                
             }
-            else if (cartaJogador.getAtaque() >= cartaAdversario.getDefesa())
+            else if (cartaJogador.getAtaque() < cartaAdversario.getDefesa() && cartaAdversario.getAtaque() > cartaJogador.getDefesa() )
             {
-                Console.WriteLine("Você destruiu o card adversário");
+                getAtaqueAdversario = Convert.ToInt32(cartaAdversario.getAtaque());
+                getDefesaJogador = Convert.ToInt32(cartaJogador.getDefesa());
+                getVidaJogador = Convert.ToInt32(jogador.getVida());
+
+                int resultVidaJogador = getAtaqueAdversario - getDefesaJogador;
+
+                Console.WriteLine("Você tomou " + resultVidaJogador +   "  de dano");
+                System.Threading.Thread.Sleep(300);
             }
-            else if (cartaJogador.getAtaque() < cartaAdversario.getDefesa())
+
+            else if (cartaJogador.getAtaque()> cartaAdversario.getDefesa() && cartaAdversario.getAtaque()> cartaJogador.getDefesa())
             {
-                Console.WriteLine("Você Não destruiu o card adversário");
+
+                getAtaqueAdversario = Convert.ToInt32(cartaAdversario.getAtaque());
+                getDefesaAdversario = Convert.ToInt32(cartaAdversario.getDefesa());
+                getAtaqueJogador = Convert.ToInt32(cartaJogador.getAtaque());
+                getDefesaJogador = Convert.ToInt32(cartaJogador.getDefesa());
+                getVidaAdversario = Convert.ToInt32(adversario.getVida());
+                getVidaJogador = Convert.ToInt32(jogador.getVida());
+
+                int resultVidaJogador = getAtaqueAdversario - getDefesaJogador;
+                int resultVidaAdversario = getAtaqueJogador - getDefesaAdversario;
+
+                Console.WriteLine("Você tomou " + resultVidaJogador + " e o oponente tomou "  + resultVidaAdversario + "  de dano"  );
             }
-            if (cartaAdversario.getAtaque() >= cartaJogador.getDefesa() && cartaJogador.getAtaque() < cartaAdversario.getDefesa())
+                //Nome da carta que o oponente jogou (para testes)
+                Console.WriteLine(cartaAdversario.getNome());
+                System.Threading.Thread.Sleep(300);
+            
+            if (getVidaAdversario <= 0  &&  getVidaJogador<= 0 )
             {
-                Console.WriteLine(cartaJogador.getNome() + " foi destruido");
+                Console.WriteLine("EMPATE!\n");
+                Menu();
             }
-            if (jogador.getVida() <= 0)
+            else if (getVidaJogador <= 0)
             {
                 Console.WriteLine("Você perdeu\n");
                 Menu();
             }
-            else if (adversario.getVida() <= 0)
+            else if (getVidaAdversario <= 0)
             {
                 Console.WriteLine("Você venceu!\n");
                 Menu();
             }
+
             else
             {
                 Carta cartaComprada = jogador.comprarCarta();
@@ -159,6 +227,8 @@
                 {
                     jogador.GetCartas().Add(cartaComprada);
                     Console.WriteLine("> Você comprou: " + cartaComprada.getNome() + "\nPróximo turmo...\n");
+                    System.Threading.Thread.Sleep(300);
+                    
                     turnoSC();
                 }
                 else
@@ -168,15 +238,21 @@
                     Menu();
                 }
             }
+              
+          
+        
         }
-
         private static void turnoSC()
         {
             exibirMao();
             Console.WriteLine("Vida atual =  " + jogador.getVida());
             Console.WriteLine("Vida atual do oponente é =  " + adversario.getVida());
-            Console
-              .WriteLine("\nDigite o número da carta que deseja jogar na mesa:");
+            System.Threading.Thread.Sleep(300);
+            Console.WriteLine("Em seu deck a " + jogador.GetGrimorio().Count() + " cards \n" + "No deck do oponente há " + adversario.GetGrimorio().Count() + " cards ");
+            System.Threading.Thread.Sleep(300);
+
+            
+            Console.WriteLine("\nDigite o número da carta que deseja jogar na mesa(1 à 4):");
             string cartaMesa = Console.ReadLine();
 
 
@@ -226,3 +302,4 @@
         }
     }
 }
+

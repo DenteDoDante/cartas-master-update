@@ -16,7 +16,7 @@ namespace cartas
         public Jogador(int id, string? nome) {
             this.id = -1;
             this.nome = "null";
-            this.vida = 100;
+            this.vida = 20;
             this.cartas = pegarCartas(this.grimorio);
         }
         public string getNome() {

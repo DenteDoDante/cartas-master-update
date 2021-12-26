@@ -66,5 +66,13 @@ namespace cartas
                 return GeradorDeCartas.SemDados();
             }
         }
+        public void mulligan()
+        {
+            for (int i = 0; i <4; i++ ){
+                this.grimorio.Add(this.cartas[0]);
+                this.cartas.Remove(this.cartas[0]);
+            }
+            this.cartas = pegarCartas(this.grimorio);
+        }
     }
 }

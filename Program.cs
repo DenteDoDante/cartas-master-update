@@ -37,8 +37,7 @@
             Console.ReadLine();
             Console.Clear();
             Console.WriteLine("Olá " + nomeJogador + "!\n");
-            Console
-                .WriteLine("Escolha uma opção:\n1 - Iniciar novo jogo\n2 - Sair");
+            Console.WriteLine("Escolha uma opção:\n1 - Iniciar novo jogo\n2 - Sair");
             string opcao = Console.ReadLine();
             switch (opcao)
             {
@@ -71,6 +70,7 @@
 
             // Exibimos as cartas do jogador em mãos
             exibirMao();
+            MULLIGAN();
 
             // Selecionar a carta para jogar na mesa;
             Console.WriteLine("Vida atual =  " + jogador.getVida());
@@ -118,7 +118,42 @@
                     " de defesa.\n");
             }
         }
-
+            private static void MULLIGAN()
+            {
+                Console.WriteLine("FASE DE MULLIGAN");
+                Console.WriteLine("Trocar cartas? 1(sim) 2(Não)");
+                string escolha = Console.ReadLine();
+                switch (escolha)
+                {
+                    case "1":
+                    case "sim":
+                    {
+                        Console.Clear();
+                        jogador.mulligan();
+                        exibirMao();
+                        break;
+                    }
+                    case "2":
+                    case "nao":
+                    case "não":
+                    {
+                      
+                      break;
+                    
+                    }
+                    default:
+                    {
+                    
+                        Console.WriteLine("Opção inválida. Tente novamente.");
+                        MULLIGAN();
+                        break;
+                    }
+                    
+                    
+                }
+            }    
+        
+        
         private static void verificaResultado(Carta cartaJogador, Jogador adversario)
         {
 
